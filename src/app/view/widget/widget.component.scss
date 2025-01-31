@@ -1,0 +1,13 @@
+@import "../../../assets/scss/variables.scss";
+
+mat-card {
+  width: $md;
+
+  @media screen and (max-width: $md) {
+    width: 100vw;
+  }
+}
+
+hr {
+  visibility: hidden;
+}

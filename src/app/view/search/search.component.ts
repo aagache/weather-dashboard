@@ -46,10 +46,13 @@ export class SearchComponent implements OnInit {
 
     return this.locationService.getLocation(place).pipe(
       map((locations: LocationType[]) => {
-        console.log('found', locations)
         this.noResults = locations.length === 0;
         return locations;
       })
     );
+  }
+
+  onLocationSelect(location: LocationType): void {
+    this.locationService.setLocation(location);
   }
 }

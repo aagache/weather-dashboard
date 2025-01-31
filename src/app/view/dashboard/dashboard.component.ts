@@ -10,5 +10,4 @@ import { WidgetComponent } from '../widget/widget.component';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
-
 }

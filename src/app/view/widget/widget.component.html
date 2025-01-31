@@ -1,1 +1,24 @@
-<p>widget works!</p>
+<mat-card *ngIf="weatherData">
+  <mat-card-header>
+    <mat-card-title>{{ getLocation() }}</mat-card-title>
+    <mat-card-subtitle>{{ weatherData!.time | date: 'HH:mm' }}</mat-card-subtitle>
+  </mat-card-header>
+  
+  <hr>
+  <mat-card-content>
+    <div class="weather-info">
+      <div class="info-item">
+        <strong>Temperature:</strong> {{ weatherData!.temperature }}°C
+      </div>
+      <div class="info-item">
+        <strong>Humidity:</strong> {{ weatherData!.humidity }}%
+      </div>
+      <div class="info-item">
+        <strong>Wind Speed:</strong> {{ weatherData!.windspeed }} km/h
+      </div>
+      <div class="info-item">
+        <strong>Weather Code:</strong> {{ weatherData!.weathercode }}
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

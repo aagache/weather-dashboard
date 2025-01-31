@@ -5,7 +5,10 @@
   </mat-form-field>
 
   <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let location of foundLocations | async" [value]="location.display_name">
+    <mat-option 
+      *ngFor="let location of foundLocations | async" 
+      [value]="location.display_name"
+      (click)="onLocationSelect(location)">
       {{ location.display_name }}
     </mat-option>
   </mat-autocomplete>
