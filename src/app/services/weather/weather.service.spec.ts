@@ -45,12 +45,12 @@ describe('WeatherService', () => {
       humidity: mockApiResponse.current.relative_humidity_2m,
     };
 
-    service.getCurrentWeather(lat, lon, unit).subscribe((weather) => {
+    service.getCurrentWeather(lat, lon).subscribe((weather) => {
       expect(weather).toEqual(expectedWeather);
     });
 
     const req = httpTestingController.expectOne(
-      `${environment.weatherApi}forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&temperature_unit=${unit}`
+      `${environment.weatherApi}forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code`
     );
 
     req.flush(mockApiResponse);

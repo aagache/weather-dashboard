@@ -17,7 +17,7 @@ export class LocationService {
     return this.http.get<any[]>(`${environment.locationApi}search?q=${place}&format=json`);
   }
 
-  setLocation(location: LocationType): void {
+  setLocation(location: LocationType | null): void {
     this.selectedLocation.next(location);
   }
 }

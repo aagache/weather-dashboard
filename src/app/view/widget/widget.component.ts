@@ -5,13 +5,14 @@ import { WeatherService } from '../../services/weather/weather.service';
 import { CurrentWeather } from '../../models/weather';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
+import { translateWeatherCode } from '../../utils/weather-description';
 
 @Component({
   selector: 'weather-widget',
   standalone: true,
   imports: [
     CommonModule,
-    MatCardModule
+    MatCardModule,
   ],
   templateUrl: './widget.component.html',
   styleUrl: './widget.component.scss'
@@ -58,5 +59,13 @@ export class WidgetComponent implements OnInit {
     const commaIndex = location.indexOf(',');
     
     return commaIndex !== -1 ? location.substring(0, commaIndex) : location;
+  }
+
+  getWeatherDescription(code: number): string {
+    return translateWeatherCode(code).condition;
+  }
+
+  getWeatherIcon(code: number): string {
+    return translateWeatherCode(code).icon;
   }
 }
