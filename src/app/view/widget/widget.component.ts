@@ -6,6 +6,7 @@ import { CurrentWeather } from '../../models/weather';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { translateWeatherCode } from '../../utils/weather-description';
+import { WeatherToggleComponent } from '../weather-toggle/weather-toggle.component';
 
 @Component({
   selector: 'weather-widget',
@@ -13,6 +14,7 @@ import { translateWeatherCode } from '../../utils/weather-description';
   imports: [
     CommonModule,
     MatCardModule,
+    WeatherToggleComponent
   ],
   templateUrl: './widget.component.html',
   styleUrl: './widget.component.scss'

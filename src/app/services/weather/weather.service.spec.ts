@@ -25,7 +25,6 @@ describe('WeatherService', () => {
   it('should fetch current weather for given coordinates', () => {
     const lat = 40.123;
     const lon = -40.456;
-    const unit = 'celsius';
 
     const mockApiResponse = {
       current: {

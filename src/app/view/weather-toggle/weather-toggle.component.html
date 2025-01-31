@@ -1,0 +1,3 @@
+{{getCurrentTemperature()}}°
+<span [ngClass]="{ 'selected' : isCelsius }" (click)="setTemperatureUnit('C')">C</span> | 
+<span [ngClass]="{ 'selected' : !isCelsius }" (click)="setTemperatureUnit('F')">F</span>

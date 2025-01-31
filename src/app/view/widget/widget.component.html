@@ -1,7 +1,9 @@
 <mat-card *ngIf="weatherData && currentLocation">
   <mat-card-header>
     <mat-card-title>{{ getLocation() }} {{ getWeatherIcon(weatherData!.weathercode) }}</mat-card-title>
-    <mat-card-subtitle>{{ weatherData!.temperature }}°C</mat-card-subtitle>
+    <mat-card-subtitle>
+      <weather-toggle [temperatureCelsius]="weatherData!.temperature"></weather-toggle>
+    </mat-card-subtitle>
   </mat-card-header>
 
   <hr>
