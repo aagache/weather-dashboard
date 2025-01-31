@@ -13,13 +13,15 @@ export class WeatherService {
 
   public getCurrentWeather(lat: number, lon: number, unit = 'celsius'): Observable<CurrentWeather> {
     return this.http
-      .get<any>(`${environment.weatherApi}forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=${unit}`)
+      .get<any>(`${environment.weatherApi}forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&temperature_unit=${unit}`)
       .pipe(
         map(data => {
             return {
-              temperature: data.current_weather.temperature,
-              time: data.current_weather.time,
-              weathercode: data.current_weather.weathercode
+              temperature: data.current.temperature_2m,
+              time: data.current.time,
+              weathercode: data.current.weather_code,
+              windspeed: data.current.wind_speed_10m,
+              humidity: data.current.relative_humidity_2m,
             } as CurrentWeather
         })
       );

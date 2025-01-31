@@ -28,15 +28,21 @@ describe('WeatherService', () => {
     const unit = 'celsius';
 
     const mockApiResponse = {
-      current_weather: {
-        temperature: 25.3,
+      current: {
+        temperature_2m: 25.3,
         time: '2025-01-31T14:00:00Z',
-        weathercode: 2,
+        weather_code: 2,
+        wind_speed_10m: 10,
+        relative_humidity_2m: 55,
       },
     };
 
     const expectedWeather: CurrentWeather = {
-      ...mockApiResponse.current_weather
+      temperature: mockApiResponse.current.temperature_2m,
+      time: mockApiResponse.current.time,
+      weathercode: mockApiResponse.current.weather_code,
+      windspeed: mockApiResponse.current.wind_speed_10m,
+      humidity: mockApiResponse.current.relative_humidity_2m,
     };
 
     service.getCurrentWeather(lat, lon, unit).subscribe((weather) => {
@@ -44,7 +50,7 @@ describe('WeatherService', () => {
     });
 
     const req = httpTestingController.expectOne(
-      `${environment.weatherApi}forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=${unit}`
+      `${environment.weatherApi}forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&temperature_unit=${unit}`
     );
 
     req.flush(mockApiResponse);

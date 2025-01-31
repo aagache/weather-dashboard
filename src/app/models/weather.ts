@@ -8,4 +8,6 @@ export interface CurrentWeather {
   temperature: number;
   time: string;
   weathercode: number;
+  windspeed: number;
+  humidity: number;
 }
