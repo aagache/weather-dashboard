@@ -42,4 +42,22 @@ describe('LocationService', () => {
   
     req.flush(mockLocation);
   });
+
+  it('should set the location', (done) => {
+    let result: LocationType | null = null;
+
+    const mockLocation: LocationType = {
+      display_name: 'Oradea, Romania',
+      lat: 40.123, 
+      lon: -40.456,
+    };
+
+    service.setLocation(mockLocation);
+    service.selectedLocation.subscribe(data => {
+      result = data
+    
+      expect(result).toEqual(mockLocation);
+      done();
+    });
+  });
 });

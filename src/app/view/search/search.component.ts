@@ -37,11 +37,11 @@ export class SearchComponent implements OnInit {
     this.foundLocations = this.searchField.valueChanges.pipe(
       startWith(''),
       debounceTime(300),
-      switchMap(value => value ? this.searchCities(value) : [])
+      switchMap(value => value ? this.searchPlaces(value) : [])
     );
   }
 
-  searchCities(place: string): Observable<LocationType[]> {
+  searchPlaces(place: string): Observable<LocationType[]> {
     this.noResults = false;
 
     return this.locationService.getLocation(place).pipe(

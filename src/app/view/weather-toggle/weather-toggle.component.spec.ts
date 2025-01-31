@@ -20,4 +20,10 @@ describe('WeatherToggleComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should set the temperature unit', () => {
+    component.temperatureCelsius = 10;
+    component.setTemperatureUnit('F');
+    expect(component.getCurrentTemperature()).toBe(50);
+  });
 });
