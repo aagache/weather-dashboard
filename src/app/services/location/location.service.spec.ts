@@ -25,11 +25,11 @@ describe('LocationService', () => {
   it('should fetch location data for a given place', (done: DoneFn) => {
     const place = 'Oradea';
 
-    const mockLocation: LocationType = {
+    const mockLocation: LocationType[] = [{
       display_name: 'Oradea, Romania',
       lat: 40.123, 
       lon: -40.456,
-    };
+    }];
 
     service.getLocation(place).subscribe(data => { 
       expect(mockLocation).toEqual(data);

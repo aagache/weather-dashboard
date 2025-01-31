@@ -13,9 +13,7 @@ export class WeatherService {
 
   public getCurrentWeather(lat: number, lon: number, unit = 'celsius'): Observable<CurrentWeather> {
     return this.http
-      .get<any>(`
-          ${environment.weatherApi}forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=${unit}
-        `)
+      .get<any>(`${environment.weatherApi}forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=${unit}`)
       .pipe(
         map(data => {
             return {
