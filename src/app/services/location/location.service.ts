@@ -11,7 +11,7 @@ export class LocationService {
 
   constructor(private http: HttpClient) {}
 
-  public getLocation(place: string): Observable<LocationType> {
-    return this.http.get<LocationType>(`${environment.locationApi}search?q=${place}&format=json`);
+  public getLocation(place: string): Observable<LocationType[]> {
+    return this.http.get<any[]>(`${environment.locationApi}search?q=${place}&format=json`);
   }
 }
