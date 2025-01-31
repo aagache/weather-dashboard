@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-widget',
+  selector: 'weather-widget',
   standalone: true,
   imports: [],
   templateUrl: './widget.component.html',

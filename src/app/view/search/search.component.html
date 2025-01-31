@@ -1,1 +1,16 @@
-<p>search works!</p>
+<div class="search-wrapper">
+  <mat-form-field appearance="fill">
+    <mat-label>Search for a place on planet Earth</mat-label>
+    <input matInput [formControl]="searchField" [matAutocomplete]="auto">
+  </mat-form-field>
+
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let location of foundLocations | async" [value]="location.display_name">
+      {{ location.display_name }}
+    </mat-option>
+  </mat-autocomplete>
+
+  <div *ngIf="noResults" class="no-results-message">
+    The place you are looking for could not be found on planet Earth 🛸
+  </div>
+</div>

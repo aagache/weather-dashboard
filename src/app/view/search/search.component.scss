@@ -1,0 +1,17 @@
+@import "../../../assets/scss/variables.scss";
+
+.search-wrapper {
+  width: $md;
+
+  @media screen and (max-width: $md) {
+    width: 100vw;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.no-results-message {
+  text-align: center;
+}
